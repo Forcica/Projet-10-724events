@@ -12,8 +12,7 @@ const Slider = () => {
   );
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index < byDateDesc.length ? index + 1 : 0),
-      5000
+      () => setIndex((index + 1) % byDateDesc.length), 5000
     );
   };
   useEffect(() => {
@@ -45,7 +44,7 @@ const Slider = () => {
                   key={`${event.id}`}
                   type="radio"
                   name="radio-button"
-                  checked={idx === radioIdx}
+                  checked={index === radioIdx} // Remplacement par index, car ici idx est l'index de la boucle
                 />
               ))}
             </div>
