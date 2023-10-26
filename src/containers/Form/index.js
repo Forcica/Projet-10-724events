@@ -24,12 +24,11 @@ const Form = ({ onSuccess, onError }) => {
       setSending(false);
       onError(err);
     }
-  // eslint-disable-next-line
   }, [onSuccess, onError]);
 
   return (
     // Ajout d'une condition pour afficher le message de confirmation
-    <form onSubmit={sendContact}>
+    <form onSubmit={sendContact} required>
       {showConfirmation ? (
         <div className="message__cont">
           <p className="message__text">Votre message a été envoyé avec succès, merci à très vite :)</p>
@@ -37,8 +36,8 @@ const Form = ({ onSuccess, onError }) => {
       ) : (
         <div className="row">
           <div className="col">
-            <Field placeholder="" label="Nom" />
-            <Field placeholder="" label="Prénom" />
+            <Field placeholder="" label="Nom" required/>
+            <Field placeholder="" label="Prénom" required/>
             <Select
               selection={["Personel", "Entreprise"]}
               onChange={() => null}
@@ -46,8 +45,9 @@ const Form = ({ onSuccess, onError }) => {
               type="large"
               titleEmpty
             />
-            <Field placeholder="" label="Email" />
-            <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
+            <Field placeholder="" label="Email" required/>
+            {/* Ajout d'une redirection vers onSuccess() */}
+            <Button type={BUTTON_TYPES.SUBMIT} disabled={sending} onClick={() => onSuccess()}>
               {sending ? "En cours" : "Envoyer"}
             </Button>
           </div>
