@@ -12,8 +12,13 @@ const Slider = () => {
   );
   const nextCard = () => {
     setTimeout(
+      // () => setIndex(index < byDateDesc.length ? index + 1 : 0), 5000);
+      // DEBUG DEFILEMENT INFINI
+      // Incrémentation l'index de 1
+      // si index = byDateDesc.length alors reset grace au modulo
+      // reste division = index du prochain slide
       () => setIndex((index + 1) % byDateDesc.length), 5000
-    );
+      );
   };
   useEffect(() => {
     nextCard();
@@ -44,7 +49,9 @@ const Slider = () => {
                   key={`${event.id}`}
                   type="radio"
                   name="radio-button"
-                  checked={index === radioIdx} // Remplacement par index, car ici idx est l'index de la boucle
+                  // checked={idx === radioIdx}
+                  // Remplacement par index, car ici idx est l'index de la boucle
+                  checked={index === radioIdx}
                 />
               ))}
             </div>

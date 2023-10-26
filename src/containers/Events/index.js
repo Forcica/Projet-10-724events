@@ -13,12 +13,17 @@ const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Modif de la f de filtre pour qu'elle prenne en compte le type
   const filteredEvents = ((!type ? data?.events : data?.events.filter((el) => el.type === type)) || []).filter((event, index) => {
     if ((currentPage - 1) * PER_PAGE <= index && PER_PAGE * currentPage > index) {
       return true;
     }
     return false;
   });
+
+
+
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
@@ -57,7 +62,7 @@ const EventList = () => {
             const eventId = filteredEvents[n]?.id;
             return (
               <a
-              // Key devient unique
+              // Debug de la key pour qu'elle soit unique
                 key={eventId}
                 href="#events"
                 onClick={() => setCurrentPage(n + 1)}

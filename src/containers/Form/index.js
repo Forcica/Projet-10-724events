@@ -24,6 +24,7 @@ const Form = ({ onSuccess, onError }) => {
       setSending(false);
       onError(err);
     }
+  // eslint-disable-next-line
   }, [onSuccess, onError]);
 
   return (
@@ -37,7 +38,7 @@ const Form = ({ onSuccess, onError }) => {
         <div className="row">
           <div className="col">
             <Field placeholder="" label="Nom" />
-            <Field placeholder="" label="Prénom" />event
+            <Field placeholder="" label="Prénom" />
             <Select
               selection={["Personel", "Entreprise"]}
               onChange={() => null}
