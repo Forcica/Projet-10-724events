@@ -1,11 +1,5 @@
 import PropTypes from "prop-types";
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
 const DataContext = createContext({});
 
@@ -29,16 +23,15 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     if (data) return;
     getData();
-  });
+  }, [data, getData]);
+
+  const memoizedValue = useMemo(() => ({
+    data,
+    error,
+  }), [data, error]);
   
   return (
-    <DataContext.Provider
-      // eslint-disable-next-line react/jsx-no-constructed-context-values
-      value={{
-        data,
-        error,
-      }}
-    >
+    <DataContext.Provider value={memoizedValue}>
       {children}
     </DataContext.Provider>
   );
