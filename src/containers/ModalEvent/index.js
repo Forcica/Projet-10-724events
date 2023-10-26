@@ -32,7 +32,6 @@ const ModalEvent = ({ event }) => (
     </div>
   );
 
-// Remplacement de event: PropTypes.any.isRequired, par: (précision du type de l'objet)
 ModalEvent.propTypes = {
   event: PropTypes.shape({
     cover: PropTypes.string.isRequired,
@@ -43,6 +42,5 @@ ModalEvent.propTypes = {
     prestations: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
-  
 
 export default ModalEvent;

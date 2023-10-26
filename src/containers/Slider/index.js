@@ -14,8 +14,13 @@ const Slider = () => {
   );
   const nextCard = () => {
     setTimeout(
+<<<<<<< HEAD
       () => setIndex((index + 1) % (byDateDesc?.length || 0)), 5000
       );
+=======
+      () => setIndex((index + 1) % byDateDesc.length), 5000
+    );
+>>>>>>> parent of 4832278 ([FIX] Reinstalling the project after problems also with few changes)
   };
   useEffect(() => {
     nextCard();
@@ -46,10 +51,14 @@ const Slider = () => {
                   key={uuidv4()}
                   type="radio"
                   name="radio-button"
+<<<<<<< HEAD
                   // checked={idx === radioIdx}
                   // Remplacement par index, car ici idx est l'index de la boucle
                   checked={index === radioIdx}
                   onChange={() => {}}
+=======
+                  checked={index === radioIdx} // Remplacement par index, car ici idx est l'index de la boucle
+>>>>>>> parent of 4832278 ([FIX] Reinstalling the project after problems also with few changes)
                 />
               ))}
             </div>
