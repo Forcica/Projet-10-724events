@@ -56,12 +56,7 @@ const EventList = () => {
           <div className="Pagination">
           {[...Array(pageNumber || 0)].map((_, n) => (
               <a
-<<<<<<< HEAD
               key={uuidv4()}
-=======
-              // Key devient unique
-                key={eventId}
->>>>>>> parent of 4832278 ([FIX] Reinstalling the project after problems also with few changes)
                 href="#events"
                 onClick={() => setCurrentPage(n + 1)}
               >

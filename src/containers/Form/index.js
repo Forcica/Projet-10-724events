@@ -28,6 +28,7 @@ const Form = ({ onSuccess, onError }) => {
 
   return (
     // Ajout d'une condition pour afficher le message de confirmation
+    // Ajour de required sur le form 
     <form onSubmit={sendContact} required>
       {showConfirmation ? (
         <div className="message__cont">
@@ -36,13 +37,8 @@ const Form = ({ onSuccess, onError }) => {
       ) : (
         <div className="row">
           <div className="col">
-<<<<<<< HEAD
             <Field placeholder="" label="Nom" required/>
             <Field placeholder="" label="Prénom" required/>
-=======
-            <Field placeholder="" label="Nom" />
-            <Field placeholder="" label="Prénom" />event
->>>>>>> parent of 4832278 ([FIX] Reinstalling the project after problems also with few changes)
             <Select
               selection={["Personel", "Entreprise"]}
               onChange={() => null}
@@ -61,6 +57,7 @@ const Form = ({ onSuccess, onError }) => {
               placeholder="message"
               label="Message"
               type={FIELD_TYPES.TEXTAREA}
+              required
             />
           </div>
         </div>
